@@ -26,7 +26,7 @@ class PicturesController <ApplicationController
     
     
     def index
-        @list_of_photos = Photo.order(:create_at => :desc)
+        # @list_of_photos = Photo.order(:create_at => :desc)
         
         
         render ("pic_templates/index.html.erb")
@@ -51,7 +51,7 @@ class PicturesController <ApplicationController
     
     
     
-    def update_row
+    def update_photo
         p = Photo.find(params[:id])
         
         p.source = params[:the_source]
