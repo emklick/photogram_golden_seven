@@ -36,6 +36,8 @@ class PicturesController <ApplicationController
     
     def show
         @photo = Photo.find(params[:id_number])
+        # @the_source = ...
+        # @the_caption = ...
         
         
         render ("pic_templates/show.html.erb")
