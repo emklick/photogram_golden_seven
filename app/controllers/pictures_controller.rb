@@ -26,7 +26,7 @@ class PicturesController <ApplicationController
     
     
     def index
-        # @list_of_photos = Photo.order(:create_at => :desc)
+        @list_of_photos = Photo.order(:create_at => :desc)
         
         
         render ("pic_templates/index.html.erb")
