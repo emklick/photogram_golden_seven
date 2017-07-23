@@ -1,0 +1,93 @@
+class PicturesController <ApplicationController
+    
+    def new_form
+        
+        # redirect_to("https://photogram-golden-seven-emklick.c9users.io/photos")
+        
+        render ("pic_templates/new_form.html.erb")
+    end    
+    
+    
+    
+    def create_photo
+        p = Photo.new
+        
+        p.source = params[:the_source]
+        p.caption = params[:the_caption]
+        
+        p.save
+        
+        
+        @current_count = Photo.count
+        
+        
+        render ("pic_templates/create_photo.html.erb")
+    end 
+    
+    
+    
+    def index
+        @list_of_photos = Photo.order(:created_at => :desc)
+
+  
+               
+        
+        render ("pic_templates/index.html.erb")
+    end  
+    
+    
+    
+    def show
+        
+        @photo = Photo.find(params["photo_id"])
+        
+        render ("pic_templates/show.html.erb")
+    end  
+    
+    
+    def edit_photo
+        @photo = Photo.find(params[:photo_id])
+       
+        # p.source = params[:the_source]
+        # p.caption = params[:the_caption]
+        
+        # p.save 
+        
+        render ("pic_templates/edit_photo.html.erb")
+    end  
+    
+    
+    
+    def update_photo
+        p = Photo.find(params[:photo_id])
+        
+        p.source = params[:the_source]
+        p.caption = params[:the_caption]
+        
+        p.save
+        
+        
+        render ("pic_templates/update_photo.html.erb")
+    end  
+    
+    
+    
+    def destroy_photo
+        p = Photo.find(params["adios_id"])
+        
+        @photo_delete_id = params[:adios_id]
+        
+        p.destroy
+        
+        @remaining_count = Photo.count
+        
+        p.save
+        
+        render ("pic_templates/destroy_photo.html.erb")
+    end  
+    
+    
+    
+    
+    
+end    
