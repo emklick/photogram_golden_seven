@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   mount WebGit::Engine, at: "/rails/git"
 
+  get("/", { :controller => "pictures", :action => "inde"})
+
 
 # CREATE
 
