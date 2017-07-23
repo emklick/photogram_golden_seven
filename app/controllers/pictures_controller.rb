@@ -2,7 +2,7 @@ class PicturesController <ApplicationController
     
     def new_form
         
-        
+        # redirect_to("https://photogram-golden-seven-emklick.c9users.io/photos")
         
         render ("pic_templates/new_form.html.erb")
     end    
@@ -38,7 +38,7 @@ class PicturesController <ApplicationController
     
     def show
         
-        @photo_details = Photo.find(params[:id])
+        @photo_details = Photo.find(params[:id_number])
         
         render ("pic_templates/show.html.erb")
     end  
@@ -54,14 +54,13 @@ class PicturesController <ApplicationController
     
     
     def update_photo
-        p = Photo.find(params[:id])
+        p = Photo.find(params[:id_number])
         
         p.source = params[:the_source]
         p.caption = params[:the_caption]
         
         p.save
         
-        @the_id = p.id
         
         render ("pic_templates/update_photo.html.erb")
     end  
