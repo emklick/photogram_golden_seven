@@ -38,7 +38,7 @@ class PicturesController <ApplicationController
     
     def show
         
-        @photo = Photo.find(params[:id_number]).to_i
+        @photo_details = Photo.find(params[:id])
         
         render ("pic_templates/show.html.erb")
     end  
@@ -70,6 +70,8 @@ class PicturesController <ApplicationController
     
     def destroy_photo
         p = Photo.find(params[:adios_id])
+        
+        @photo_delete_id = params[:adios_id]
         
         p.destroy
         
