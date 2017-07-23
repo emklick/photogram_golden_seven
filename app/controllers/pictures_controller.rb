@@ -80,7 +80,7 @@ class PicturesController <ApplicationController
     
     def show
         
-        @photo_details = Photo.find(params[:id_number])
+        @photo = Photo.find(params["photo_id"])
         
         render ("pic_templates/show.html.erb")
     end  
@@ -88,7 +88,11 @@ class PicturesController <ApplicationController
     
     def edit_photo
         @photo = Photo.find(params[:photo_id])
+       
+        p.source = params["the_source"]
+        p.caption = params["the_caption"]
         
+        p.save 
         
         render ("pic_templates/edit_photo.html.erb")
     end  
@@ -96,10 +100,10 @@ class PicturesController <ApplicationController
     
     
     def update_photo
-        p = Photo.find(params[:id_number])
+        p = Photo.find(params[:photo_id])
         
-        p.source = params[:the_source]
-        p.caption = params[:the_caption]
+        p.source = params["the_source"]
+        p.caption = params["the_caption"]
         
         p.save
         
@@ -110,7 +114,7 @@ class PicturesController <ApplicationController
     
     
     def destroy_photo
-        p = Photo.find(params[:adios_id])
+        p = Photo.find(params["adios_id"])
         
         @photo_delete_id = params[:adios_id]
         

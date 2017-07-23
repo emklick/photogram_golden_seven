@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   
 # READ  
   get("/photos", {:controller => "pictures", :action => "index"})
-  get("/photos/:id_number", {:controller => "pictures", :action => "show"})
+  get("/photos/:photo_id", {:controller => "pictures", :action => "show"})
    
 # UPDATE
   get("/photos/:photo_id/edit", {:controller => "pictures", :action => "edit_photo"})
-  get("/update_photo/:id_number", {:controller => "pictures", :action => "update_photo"})
+  get("/update_photo/:photo_id", {:controller => "pictures", :action => "update_photo"})
    
 # DELETE
   get("/delete_photo/:adios_id", {:controller => "pictures", :action => "destroy_photo"})
