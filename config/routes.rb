@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get("/update_photo/:id", {:controller => "pictures", :action => "update_photo"})
    
 # DELETE
-  get("/delete_photo/adios_id", {:controller => "pictures", :action => "destroy_photo"})
+  get("/delete_photo/:adios_id", {:controller => "pictures", :action => "destroy_photo"})
 
 
 

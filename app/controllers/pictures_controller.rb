@@ -75,6 +75,8 @@ class PicturesController <ApplicationController
         
         @remaining_count = Photo.count
         
+        p.save
+        
         render ("pic_templates/destroy_photo.html.erb")
     end  
     
