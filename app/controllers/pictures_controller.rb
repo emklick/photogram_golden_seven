@@ -28,6 +28,8 @@ class PicturesController <ApplicationController
     def index
         @list_of_photos = Photo.order(:create_at => :desc)
         
+        @photo = Photo.find(params[:adios_id])
+        
         
         render ("pic_templates/index.html.erb")
     end  
@@ -36,7 +38,7 @@ class PicturesController <ApplicationController
     
     def show
         
-        @photo = Photo.find(params[:id_number])
+        @photo = Photo.find(params[:id_number]).to_i
         
         render ("pic_templates/show.html.erb")
     end  
